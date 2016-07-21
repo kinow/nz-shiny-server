@@ -5,19 +5,10 @@ log_format traffic '$remote_addr - $remote_user [$time_local] '
 
 server {
     listen 80 default_server;
-    return 301 https://$host$request_uri;
-}
-
-server {
-    listen 443 default ssl;
 
     server_name {{ server_name }};
     access_log /var/log/nginx/rshiny_access.log traffic;
     error_log /var/log/nginx/rshiny_error.log;
-
-    ssl on;
-    ssl_certificate /etc/nginx/ssl/server.crt;
-    ssl_certificate_key /etc/nginx/ssl/server.key;
 
     location = /catalyst-logo.png {
         try_files /catalyst-logo.png =404;
