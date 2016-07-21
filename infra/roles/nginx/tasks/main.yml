@@ -22,8 +22,8 @@
   notify:
     - restart nginx
 
-- name: Copy mapserver nginx site
-  template: src=mapserver-site.j2 dest=/etc/nginx/sites-available/mapserver-site owner=root group=root mode=0644
+- name: Copy R Shiny nginx site
+  template: src=rshiny-site.j2 dest=/etc/nginx/sites-available/rshiny-site owner=root group=root mode=0644
   tags:
     - nginx
   notify:
@@ -35,9 +35,9 @@
 - name: Copy index HTML
   copy: src=index.html dest=/usr/share/nginx/html/index.html
 
-- name: Enable mapserver nginx site
-  file: src="/etc/nginx/sites-available/mapserver-site"
-        dest="/etc/nginx/sites-enabled/mapserver-site"
+- name: Enable R Shiny nginx site
+  file: src="/etc/nginx/sites-available/rshiny-site"
+        dest="/etc/nginx/sites-enabled/rshiny-site"
         owner=root
         group=root
         state=link
