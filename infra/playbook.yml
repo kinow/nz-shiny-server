@@ -1,0 +1,26 @@
+---
+- name: This playbook sets up NZ R Shiny infrastructure with Vagrant
+  hosts: vagrant
+  sudo: true
+  sudo_user: root
+
+  vars_files:
+    - vars/default.yml
+
+  roles:
+    - locale
+    - postgresql
+    - nginx
+
+- name: This playbook sets up NZ R Shiny infrastructure
+  hosts: catalyst
+  sudo: true
+  sudo_user: root
+
+  vars_files:
+    - vars/default.yml
+
+  roles:
+    - locale
+    - postgresql
+    - nginx

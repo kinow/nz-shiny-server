@@ -1,0 +1,37 @@
+log_format traffic '$remote_addr - $remote_user [$time_local] '
+                    '"$request" $status $body_bytes_sent '
+                    '"$http_referer" "$http_user_agent" '
+                    '$bytes_sent $request_time';
+
+server {
+    listen   80 default_server;
+    server_name {{ server_name }};
+    access_log /var/log/nginx/mapserver_access.log traffic;
+    error_log /var/log/nginx/mapserver_error.log;
+
+    location = /last_update {
+        try_files /last_update.txt =404;
+    }
+
+    location = /catalyst-logo.png {
+        try_files /catalyst-logo.png =404;
+    }
+
+    location = /index.html {
+        try_files /index.html =404;
+    }
+
+    # MapServer
+    location / {
+        fastcgi_pass   127.0.0.1:9999;
+        fastcgi_index  mapserv;
+        fastcgi_param  SCRIPT_FILENAME  /usr/lib/cgi-bin/mapserv$fastcgi_script_name;
+        if ($args = '') {
+            rewrite ^/(.*)$ /index.html redirect;
+        }
+        if ($arg_map = '') {
+            rewrite ^/(.*)$ /mapserv?map=/opt/basemaps/osm-google.map;
+        }
+        include fastcgi_params;
+    }
+}

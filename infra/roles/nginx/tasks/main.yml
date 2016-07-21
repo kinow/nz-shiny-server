@@ -1,0 +1,47 @@
+---
+- name: Install Packages
+  apt: >
+    pkg={{item}}
+    state=installed
+    update-cache=yes
+  with_items:
+    - nginx
+    - spawn-fcgi
+  tags:
+    - nginx
+
+- name: Start nginx server
+  service: name=nginx state=started enabled=yes
+  tags:
+    - nginx
+
+- name: Disable default server
+  file: path=/etc/nginx/sites-enabled/default state=absent
+  tags:
+    - nginx
+  notify:
+    - restart nginx
+
+- name: Copy mapserver nginx site
+  template: src=mapserver-site.j2 dest=/etc/nginx/sites-available/mapserver-site owner=root group=root mode=0644
+  tags:
+    - nginx
+  notify:
+    - restart nginx
+
+- name: Copy attribution logo
+  copy: src=catalyst-logo.png dest=/usr/share/nginx/html/catalyst-logo.png
+
+- name: Copy index HTML
+  copy: src=index.html dest=/usr/share/nginx/html/index.html
+
+- name: Enable mapserver nginx site
+  file: src="/etc/nginx/sites-available/mapserver-site"
+        dest="/etc/nginx/sites-enabled/mapserver-site"
+        owner=root
+        group=root
+        state=link
+  tags:
+    - nginx
+  notify:
+    - restart nginx

@@ -1,0 +1,5 @@
+[vagrant]
+default ansible_ssh_host=192.168.100.200
+
+[catalyst]
+maps.nzoss.org.nz ansible_ssh_host=150.242.40.18
