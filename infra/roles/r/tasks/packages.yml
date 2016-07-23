@@ -1,5 +1,6 @@
 # tasks file for r
 # based on https://github.com/Oefenweb/ansible-r/blob/master/tasks/packages.yml
+# https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages
 ---
 - name: packages | copy r scripts
   template:
