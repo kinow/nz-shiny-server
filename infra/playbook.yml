@@ -11,6 +11,7 @@
     - locale
     - postgresql
     - nginx
+    - r
 
 - name: This playbook sets up NZ R Shiny infrastructure
   hosts: catalyst
