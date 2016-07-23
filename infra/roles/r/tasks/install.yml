@@ -1,0 +1,12 @@
+---
+- name: packages | install
+  apt: >
+    pkg={{item}}
+    state=installed
+    update-cache=yes
+  with_items:
+    - r-base
+    - r-base-dev
+    - gdebi-core
+    - libiodbc2
+    - libiodbc2-dev
