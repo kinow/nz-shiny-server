@@ -4,6 +4,7 @@
     - configuration
     - r
     - r-repository
+
 - name: Install Packages
   apt: >
     pkg={{item}}
@@ -15,3 +16,9 @@
     - gdebi-core
   tags:
     - r
+
+- include: packages.yml
+  tags:
+    - configuration
+    - r
+    - r-packages
