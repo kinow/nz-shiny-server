@@ -38,4 +38,4 @@
   with_items: "{{ r_packages }}"
   when: item.state is defined and item.state == 'absent'
   tags:
-- r-packages-remove
+    - r-packages-remove
