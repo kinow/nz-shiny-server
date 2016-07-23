@@ -35,7 +35,8 @@ r_packages:
   - { name: 'lubridate' }
   - { name: 'ggplot2' }
   - { name: 'ggvis' }
-  - { name: 'rgl' }
+  # no X11 server for that
+  #- { name: 'rgl' }
   - { name: 'htmlwidgets' }
   - { name: 'leaflet' }
   - { name: 'dygraphs' }
