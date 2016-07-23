@@ -8,10 +8,10 @@
     - vars/default.yml
 
   roles:
+    - locale
     - base
-    # - locale
-    # - postgresql
-    # - nginx
+    - postgresql
+    - nginx
     - r
     - shiny
 
