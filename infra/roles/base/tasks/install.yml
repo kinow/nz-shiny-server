@@ -1,0 +1,11 @@
+---
+- name: packages | install
+  apt: >
+    pkg={{item}}
+    state=installed
+    update-cache=yes
+  with_items:
+    - ufw
+    - htop
+    - tmux
+    - packaging-dev
