@@ -1,0 +1,17 @@
+---
+- include: repository.yml
+  tags:
+    - configuration
+    - r
+    - r-repository
+- name: Install Packages
+  apt: >
+    pkg={{item}}
+    state=installed
+    update-cache=yes
+  with_items:
+    - r-base
+    - r-base-dev
+    - gdebi-core
+  tags:
+    - r
