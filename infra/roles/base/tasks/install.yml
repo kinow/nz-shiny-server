@@ -9,7 +9,6 @@
     - htop
     - tmux
     - packaging-dev
-    - build-dep
     - libcurl4-gnutls-dev
     - libcurl4-gnutls-dev
     - libxml2-dev

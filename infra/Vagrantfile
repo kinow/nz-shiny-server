@@ -4,7 +4,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "bento/ubuntu-16.04"
 
   # Skip checking for an updated Vagrant box
   config.vm.box_check_update = false
@@ -13,10 +13,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "private_network", ip: "192.168.100.200"
   config.vm.network :forwarded_port, guest: 80, host: 8099
 
-config.vm.provision "fix-no-tty", type: "shell" do |s|
+  config.vm.provision "fix-no-tty", type: "shell" do |s|
     s.privileged = false
     s.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
-end
+  end
 
   puts "proxyconf..."
   if Vagrant.has_plugin?("vagrant-proxyconf")
