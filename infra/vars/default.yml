@@ -22,53 +22,54 @@ r_packages_lib: /usr/local/lib/R/site-library
 
 r_packages:
   - { name: 'RODBC' }
-  - { name: 'RMySQL' }
-  - { name: 'RPostgreSQL' }
-  - { name: 'RSQLite' }
-  - { name: 'XLConnect' }
-  - { name: 'xlsx' }
-  - { name: 'foreign' }
-  - { name: 'dplyr' }
-  - { name: 'tidyr' }
-  - { name: 'stringr' }
-  - { name: 'lubridate' }
-  - { name: 'ggplot2' }
-  - { name: 'ggvis' }
-  - { name: 'rgl' }
-  - { name: 'htmlwidgets' }
-  - { name: 'leaflet' }
-  - { name: 'dygraphs' }
-  - { name: 'DT' }
-  - { name: 'diagrammeR' }
-  - { name: 'network3D' }
-  - { name: 'threeJS' }
-  - { name: 'googleVis' }
-  - { name: 'car' }
-  - { name: 'mgcv' }
-  - { name: 'lme4' }
-  - { name: 'nlme' }
-  - { name: 'randomForest' }
-  - { name: 'multcomp' }
-  - { name: 'vcd' }
-  - { name: 'gimnet' }
-  - { name: 'survival' }
-  - { name: 'caret' }
-  - { name: 'shiny' }
-  - { name: 'rmarkdown' }
-  - { name: 'xtable' }
-  - { name: 'sp' }
-  - { name: 'maptools' }
-  - { name: 'maps' }
-  - { name: 'ggmap' }
-  - { name: 'zoo' }
-  - { name: 'xts' }
-  - { name: 'quantmod' }
-  - { name: 'Rcpp' }
-  - { name: 'data.table' }
-  - { name: 'parallel' }
-  - { name: 'XML' }
-  - { name: 'jsonlite' }
-  - { name: 'httr' }
-  - { name: 'testthat' }
-  - { name: 'roxygen2' }
+  # - { name: 'RMySQL' }
+  # - { name: 'RPostgreSQL' }
+  # - { name: 'RSQLite' }
+  # - { name: 'XLConnect' }
+  # - { name: 'xlsx' }
+  # - { name: 'foreign' }
+  # - { name: 'dplyr' }
+  # - { name: 'tidyr' }
+  # - { name: 'stringr' }
+  # - { name: 'lubridate' }
+  # - { name: 'ggplot2' }
+  # - { name: 'ggvis' }
+  # - { name: 'rgl' }
+  # - { name: 'htmlwidgets' }
+  # - { name: 'leaflet' }
+  # - { name: 'dygraphs' }
+  # - { name: 'DT' }
+  # - { name: 'diagrammeR' }
+  # - { name: 'network3D' }
+  # - { name: 'threeJS' }
+  # - { name: 'googleVis' }
+  # - { name: 'car' }
+  # - { name: 'mgcv' }
+  # - { name: 'lme4' }
+  # - { name: 'nlme' }
+  # - { name: 'randomForest' }
+  # - { name: 'multcomp' }
+  # - { name: 'vcd' }
+  # - { name: 'gimnet' }
+  # - { name: 'survival' }
+  # - { name: 'caret' }
+  # - { name: 'shiny' }
+  # - { name: 'rmarkdown' }
+  # - { name: 'xtable' }
+  # - { name: 'sp' }
+  # - { name: 'maptools' }
+  # - { name: 'maps' }
+  # - { name: 'ggmap' }
+  # - { name: 'zoo' }
+  # - { name: 'xts' }
+  # - { name: 'quantmod' }
+  # - { name: 'Rcpp' }
+  # - { name: 'data.table' }
+  # - { name: 'parallel' }
+  # - { name: 'XML' }
+  # - { name: 'jsonlite' }
+  # - { name: 'httr' }
+  # - { name: 'testthat' }
+  # - { name: 'roxygen2' }
 
+shiny_deb: https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.4.2.786-amd64.deb

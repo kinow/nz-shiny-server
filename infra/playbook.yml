@@ -8,10 +8,11 @@
     - vars/default.yml
 
   roles:
-    - locale
-    - postgresql
-    - nginx
+    # - locale
+    # - postgresql
+    # - nginx
     - r
+    - shiny
 
 - name: This playbook sets up NZ R Shiny infrastructure
   hosts: catalyst

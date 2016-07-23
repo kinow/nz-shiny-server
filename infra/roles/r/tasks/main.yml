@@ -13,7 +13,11 @@
   with_items:
     - r-base
     - r-base-dev
+    # For Shiny
     - gdebi-core
+    # For RODBC
+    - libiodbc2
+    - libiodbc2-dev
   tags:
     - r
 
