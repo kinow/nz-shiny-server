@@ -4,3 +4,60 @@ postgresql_package_version: "9.4.*-1.pgdg14.04+1"
 server_name: 192.168.100.200
 
 locale: en_US.UTF-8
+
+r_repository:
+  - type: deb
+    url: "http://cran.rstudio.com/bin/linux/ubuntu {{ ansible_distribution_release }}/"
+
+r_packages:
+  - RODBC
+  - RMySQL
+  - RPostgreSQL
+  - RSQLite
+  - XLConnect
+  - xlsx
+  - foreign
+  - dplyr
+  - tidyr
+  - stringr
+  - lubridate
+  - ggplot2
+  - ggvis
+  - rgl
+  - htmlwidgets
+  - leaflet
+  - dygraphs
+  - DT
+  - diagrammeR
+  - network3D
+  - threeJS
+  - googleVis
+  - car
+  - mgcv
+  - lme4
+  - nlme
+  - randomForest
+  - multcomp
+  - vcd
+  - gimnet
+  - survival
+  - caret
+  - shiny
+  - rmarkdown
+  - xtable
+  - sp
+  - maptools
+  - maps
+  - ggmap
+  - zoo
+  - xts
+  - quantmod
+  - Rcpp
+  - data.table
+  - parallel
+  - XML
+  - jsonlite
+  - httr
+  - testthat
+  - roxygen2
+
