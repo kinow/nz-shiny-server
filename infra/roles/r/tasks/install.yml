@@ -11,3 +11,4 @@
     - libiodbc2
     - libiodbc2-dev
     - unixodbc-dev
+    - openjdk-8-jdk

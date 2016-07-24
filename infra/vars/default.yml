@@ -42,7 +42,8 @@ r_packages:
   - { name: 'dygraphs' }
   - { name: 'DT' }
   - { name: 'DiagrammeR' }
-  - { name: 'network3D' }
+  # no network3D for R 3.3.1
+  #- { name: 'network3D' }
   - { name: 'threejs' }
   - { name: 'googleVis' }
   - { name: 'car' }
