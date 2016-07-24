@@ -10,3 +10,4 @@
     - gdebi-core
     - libiodbc2
     - libiodbc2-dev
+    - unixodbc-dev
