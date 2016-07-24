@@ -41,7 +41,7 @@ r_packages:
   - { name: 'leaflet' }
   - { name: 'dygraphs' }
   - { name: 'DT' }
-  - { name: 'diagrammeR' }
+  - { name: 'DiagrammeR' }
   - { name: 'network3D' }
   - { name: 'threeJS' }
   - { name: 'googleVis' }
