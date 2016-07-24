@@ -28,5 +28,8 @@
 
   roles:
     - locale
+    - base
     - postgresql
     - nginx
+    - r
+    - shiny
