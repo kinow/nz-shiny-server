@@ -8,7 +8,7 @@
     - r-base
     - r-base-dev
     - gdebi-core
-    - libiodbc2
-    - libiodbc2-dev
     - unixodbc-dev
     - openjdk-8-jdk
+    - libmysqlclient-dev
+

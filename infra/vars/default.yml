@@ -26,8 +26,9 @@ r_packages:
   - { name: 'RMySQL' }
   - { name: 'RPostgreSQL' }
   - { name: 'RSQLite' }
-  - { name: 'XLConnect' }
-  - { name: 'xlsx' }
+  # Problems installing rJava
+  #- { name: 'XLConnect' }
+  #- { name: 'xlsx' }
   - { name: 'foreign' }
   - { name: 'dplyr' }
   - { name: 'tidyr' }
