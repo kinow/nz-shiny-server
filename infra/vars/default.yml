@@ -52,7 +52,8 @@ r_packages:
   - { name: 'randomForest' }
   - { name: 'multcomp' }
   - { name: 'vcd' }
-  - { name: 'gimnet' }
+  # no gimmnet for R 3.3.1
+  #- { name: 'gimnet' }
   - { name: 'survival' }
   - { name: 'caret' }
   - { name: 'Rcpp' }
