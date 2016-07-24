@@ -1,8 +1,11 @@
 ---
 - name: Download Shiny deb via wget
-  command: /usr/bin/wget "{{ shiny_deb }}" -O shiny.deb && /usr/bin/gdebi ~/shiny.deb --n
+  command: /usr/bin/wget "{{ shiny_deb }}" -O shiny.deb
   args:
     chdir: "~"
     creates: ~/shiny.deb
   register: get_shiny
 
+- name: Execute gdebi
+  command: /usr/bin/gdebi -n ~/shiny.deb
+  when: get_shiny.changed
