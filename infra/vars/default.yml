@@ -43,7 +43,7 @@ r_packages:
   - { name: 'DT' }
   - { name: 'DiagrammeR' }
   - { name: 'network3D' }
-  - { name: 'threeJS' }
+  - { name: 'threejs' }
   - { name: 'googleVis' }
   - { name: 'car' }
   - { name: 'mgcv' }
