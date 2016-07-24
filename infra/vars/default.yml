@@ -69,7 +69,6 @@ r_packages:
   - { name: 'quantmod' }
   - { name: 'Rcpp' }
   - { name: 'data.table' }
-  - { name: 'parallel' }
   - { name: 'XML' }
   - { name: 'jsonlite' }
   - { name: 'httr' }
