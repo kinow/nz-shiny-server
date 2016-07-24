@@ -1,5 +1,5 @@
 postgresql_version: "9.5"
-postgresql_package_version: "9.5.*.pgdg14.04+1"
+postgresql_package_version: "9.5.*.pgdg16.04+1"
 
 server_name: localhost
 
