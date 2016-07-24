@@ -12,3 +12,4 @@
     - libcurl4-gnutls-dev
     - libcurl4-gnutls-dev
     - libxml2-dev
+    - python3

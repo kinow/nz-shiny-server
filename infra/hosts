@@ -2,4 +2,4 @@
 default ansible_ssh_host=127.0.0.1 ansible_ssh_port=2222
 
 [catalyst]
-maps.nzoss.org.nz ansible_ssh_host=150.242.40.18
+150.242.40.18 ansible_ssh_host=150.242.40.18

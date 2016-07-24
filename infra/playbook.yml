@@ -20,6 +20,9 @@
   sudo: true
   sudo_user: root
 
+  pre_tasks:
+    - raw: sudo apt-get -y install python
+
   vars_files:
     - vars/default.yml
 
