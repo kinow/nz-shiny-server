@@ -9,3 +9,5 @@
 - name: Execute gdebi
   command: /usr/bin/gdebi -n ~/shiny.deb
   when: get_shiny.changed
+  notify: 
+    - restart nginx
