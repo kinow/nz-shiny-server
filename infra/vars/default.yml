@@ -65,6 +65,7 @@ r_packages:
   - { name: 'xtable' }
   - { name: 'sp' }
   - { name: 'maptools' }
+  - { name: 'rgeos' }
   - { name: 'maps' }
   - { name: 'ggmap' }
   - { name: 'zoo' }
