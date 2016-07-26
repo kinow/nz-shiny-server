@@ -11,4 +11,5 @@
     - unixodbc-dev
     - openjdk-8-jdk
     - libmysqlclient-dev
+    - libgdal-dev
 
