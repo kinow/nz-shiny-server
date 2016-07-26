@@ -78,5 +78,7 @@ r_packages:
   - { name: 'devtools' }
   - { name: 'testthat' }
   - { name: 'roxygen2' }
+  - { name: 'raster' }
+  - { name: 'gdal' }
 
 shiny_deb: https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.4.2.786-amd64.deb
