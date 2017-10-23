@@ -1,0 +1,15 @@
+---
+
+- name: install fail2ban
+  apt: update_cache=yes cache_valid_time=3600 pkg={{ item }} state=present # won't update if done under an hour ago
+  with_items:
+  - fail2ban
+  - iptables-persistent
+
+- name: configure fail2ban
+  template: src=etc/fail2ban/jail.local.j2 dest=/etc/fail2ban/jail.local
+  notify:
+  - Restart Fail2ban
+
+- name: ensure service starts on a fresh reboot
+  service: name=fail2ban state=started enabled=yes

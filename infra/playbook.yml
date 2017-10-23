@@ -10,7 +10,7 @@
   roles:
     - locale
     - base
-    - postgresql
+    #- postgresql
     - nginx
     - r
     - shiny
@@ -26,10 +26,16 @@
   vars_files:
     - vars/default.yml
 
+  vars:
+    security_ufw_allowed_incoming_tcp_ports:
+      - 80
+      - 22
+
   roles:
     - locale
     - base
-    - postgresql
+    - security
+    #- postgresql
     - nginx
     - r
     - shiny

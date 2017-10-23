@@ -1,0 +1,14 @@
+---
+# Implement security enhancements
+
+- include: roles/security/tasks/unattended_upgrades.yml
+  when: security_enable_feature_unattended_upgrades == true
+
+- include: roles/security/tasks/sshd_config.yml
+  when: security_enable_feature_sshd_config == true
+
+- include: roles/security/tasks/fail2ban.yml
+  when: security_enable_feature_fail2ban == true
+
+- include: roles/security/tasks/ufw.yml
+  when: security_enable_feature_ufw == true

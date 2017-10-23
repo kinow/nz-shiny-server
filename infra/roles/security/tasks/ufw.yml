@@ -1,0 +1,25 @@
+---
+
+- name: install ufw
+  apt: update_cache=yes cache_valid_time=3600 pkg={{ item }} state=present # won't update if done under an hour ago
+  with_items:
+  - ufw
+
+- name: set ufw policy to allow all outgoing connections
+  ufw: policy=allow direction=outgoing
+  when: security_ufw_apply_default_policy_allow_outgoing == true
+
+- name: add ufw rule to allow incoming ssh connections
+  ufw: rule=allow direction=in name=OpenSSH
+  when: security_ufw_allow_incoming_ssh
+
+- name: add ufw rule to allow incoming tcp connections
+  ufw: rule=allow direction=in port="{{ item }}" proto=tcp
+  with_items: "{{ security_ufw_allowed_incoming_tcp_ports }}"
+
+- ufw:
+    state: enabled
+    policy: allow
+
+- name: ensure service starts on a fresh reboot
+  service: name=ufw state=started enabled=yes

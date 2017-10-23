@@ -1,0 +1,8 @@
+---
+
+- name: Restart SSH
+  command: service ssh restart  # Command needs to be used due to an Ansible bug - this will be fixed in Ansible 2.0
+  changed_when: False
+
+- name: Restart Fail2ban
+  service: name=fail2ban state=restarted

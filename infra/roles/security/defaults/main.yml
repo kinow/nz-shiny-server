@@ -1,0 +1,32 @@
+---
+# Default variables - inventory or playbook overrides will be respected
+
+# Features
+security_enable_feature_unattended_upgrades: true
+
+security_unattended_upgrades_unattended_upgrade_periodic_interval: 1
+
+
+security_enable_feature_sshd_config: true
+
+security_sshd_config_permit_root_login: "without-password"
+security_sshd_config_password_authentication: "no"  # MUST be quoted
+
+
+security_enable_feature_fail2ban: true
+
+security_fail2ban_jail_local_defaults_bantime: 1800  # 30 minutes
+security_fail2ban_jail_local_defaults_findtime: 600  # 10 minutes
+security_fail2ban_jail_local_defaults_maxretry: 3
+
+security_fail2ban_jail_local_ssh_enabled: "true"  # MUST be quoted
+
+
+security_enable_feature_ufw: true
+
+security_ufw_apply_default_policy_deny_incoming: true
+security_ufw_apply_default_policy_allow_outgoing: true
+
+security_ufw_allow_incoming_ssh: true
+security_ufw_allowed_incoming_tcp_ports:
+  - 8080
