@@ -1,0 +1,35 @@
+
+# install R packages
+- name: packages | install
+  command: >
+    R-install-package
+      {{ item.name }}
+      {{ item.type | default(r_packages_type) }}
+      {% if item.lib is defined %}{{ item.lib }}{% endif %}
+      {% if item.repos is defined %}{{ item.repos }}{% endif %}
+  register: r_install_package
+  changed_when: "r_install_package.stdout_lines[-1] is defined and r_install_package.stdout_lines[-1] == 'changed'"
+  with_items:
+    # packages needed for the app
+    - { name: 'SPARQL' }
+    - { name: 'plyr' }
+    - { name: 'reshape2' }
+    - { name: 'plotly' }
+    - { name: 'classInt' }
+  when: item.state is undefined or item.state == 'present'
+  tags:
+    - r-packages-install
+
+# check out code
+- git:
+    repo: 'https://github.com/Swirrl/nz_shiny_river_app.git'
+    dest: /srv/shiny-server/nz_shiny_river_app
+    version: 5c65fd830b0195c150ad9d89ccc21dfcaac18f92
+
+# permissions
+- file:
+    path: /srv/shiny-server/nz_shiny_river_app
+    state: directory
+    mode: 0750
+    owner: shiny
+    group: shiny

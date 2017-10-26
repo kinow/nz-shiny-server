@@ -14,6 +14,7 @@
     - nginx
     - r
     - shiny
+    - rapps
 
 - name: This playbook sets up NZ R Shiny infrastructure
   hosts: catalyst
