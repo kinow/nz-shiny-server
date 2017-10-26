@@ -18,27 +18,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     s.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
   end
 
-  puts "proxyconf..."
-  if Vagrant.has_plugin?("vagrant-proxyconf")
-    puts "find proxyconf plugin !"
-    puts "$http_proxy -> " + ENV["http_proxy"].to_s
-    puts "$https_proxy -> " + ENV["https_proxy"].to_s
-
-    config.proxy.no_proxy = "" + ENV["no_proxy"].to_s
-
-    if ENV["http_proxy"]
-      puts "http_proxy: " + ENV["http_proxy"]
-      config.proxy.http     = ENV["http_proxy"]
-    end
-    if ENV["https_proxy"]
-      puts "https_proxy: " + ENV["https_proxy"]
-      config.proxy.https    = ENV["https_proxy"]
-    end
-    if ENV["no_proxy"]
-      config.proxy.no_proxy = ENV["no_proxy"]
-    end
-  end
-
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "playbook.yml"
     ansible.inventory_path = "hosts"
