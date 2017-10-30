@@ -24,7 +24,7 @@
 - git:
     repo: 'https://github.com/Swirrl/nz_shiny_river_app.git'
     dest: /srv/shiny-server/nz_shiny_river_app
-    version: 5c65fd830b0195c150ad9d89ccc21dfcaac18f92
+    version: ad746610ff6f536faad7c7e8df1baf86696769e5
 
 # permissions
 - file:
