@@ -61,6 +61,7 @@ r_packages:
   - { name: 'Rcpp' }
   - { name: 'httpuv' }
   - { name: 'shiny' }
+  - { name: 'shinythemes' }
   - { name: 'rmarkdown' }
   - { name: 'xtable' }
   - { name: 'sp' }
@@ -81,5 +82,6 @@ r_packages:
   - { name: 'roxygen2' }
   - { name: 'raster' }
   - { name: 'rgdal' }
+  - { name: 'plotly' }
 
 shiny_deb: https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.4.2.786-amd64.deb
