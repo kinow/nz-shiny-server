@@ -1,3 +1,5 @@
 ---
 # NZ River Monitoring app, see https://github.com/kinow/nz-shiny-server/issues/1
 - include: nz_river_app.yml
+# Earthquake example app, see https://github.com/kinow/nz-shiny-server/issues/3
+- include: nz_example_earthquakes.yml

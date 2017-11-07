@@ -1,0 +1,31 @@
+
+# install R packages
+- name: packages | install
+  command: >
+    R-install-package
+      {{ item.name }}
+      {{ item.type | default(r_packages_type) }}
+      {% if item.lib is defined %}{{ item.lib }}{% endif %}
+      {% if item.repos is defined %}{{ item.repos }}{% endif %}
+  register: r_install_package
+  changed_when: "r_install_package.stdout_lines[-1] is defined and r_install_package.stdout_lines[-1] == 'changed'"
+  with_items:
+    # packages needed for the app
+    - { name: 'lubridate' }
+  when: item.state is undefined or item.state == 'present'
+  tags:
+    - r-packages-install
+
+# check out code
+- git:
+    repo: 'https://github.com/nanchangcj6/dataproducts.git'
+    dest: /srv/shiny-server/nz_example_earthquakes
+    version: 488a31e967c309c534aa589ddc4602e7fca93c87
+
+# permissions
+- file:
+    path: /srv/shiny-server/nz_example_earthquakes
+    state: directory
+    mode: 0750
+    owner: shiny
+    group: shiny
