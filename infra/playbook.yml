@@ -31,6 +31,7 @@
     security_ufw_allowed_incoming_tcp_ports:
       - 80
       - 22
+      - 443
 
   roles:
     - locale
