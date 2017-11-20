@@ -1,9 +1,21 @@
-postgresql_version: "9.5"
-postgresql_package_version: "9.5.*.pgdg16.04+1"
 
-server_name: shiny.nzoss.org.nz
+# System variables
 
 locale: en_US.UTF-8
+
+# Security variables
+
+security_ufw_allowed_incoming_tcp_ports:
+  - 80
+  - 22
+  - 443
+
+# Nginx variables
+
+server_name: shiny.nzoss.org.nz
+letsencrypt_email: brunodepaulak+letsencrypt@gmail.com
+
+# R and R Shiny variables
 
 r_repository:
   - type: deb
@@ -85,3 +97,8 @@ r_packages:
   - { name: 'plotly' }
 
 shiny_deb: https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.4.2.786-amd64.deb
+
+# Postgres variables
+
+postgresql_version: "9.5"
+postgresql_package_version: "9.5.*.pgdg16.04+1"

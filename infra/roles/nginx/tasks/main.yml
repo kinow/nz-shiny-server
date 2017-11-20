@@ -45,13 +45,17 @@
   register: restart_nginx
 
 - name: restart nginx
-  service: name=nginx state=running
+  service: name=nginx state=started
 
 - name: restart nginx
   service: name=nginx state=restarted
   when: restart_nginx.changed
 
-- import_tasks: roles/nginx/tasks/letsencrypt.yml
+- debug:
+    msg: "{{letsencrypt_enabled}}"
+
+- include_tasks: roles/nginx/tasks/letsencrypt.yml
+  when: letsencrypt_enabled == true
 
 - name: Enable R Shiny HTTPS nginx site
   file: src="/etc/nginx/sites-available/rshiny-site-https"
@@ -59,6 +63,7 @@
         owner=root
         group=root
         state=link
+  when: letsencrypt_enabled == true
   tags:
     - nginx
   register: restart_nginx

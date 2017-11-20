@@ -8,7 +8,7 @@
   file: name=/var/www/letsencrypt state=directory
 
 - name: Create letsencrypt certificate
-  shell: letsencrypt certonly -n --webroot -w /var/www/letsencrypt -m brunodepaulak+letsencrypt@gmail.com --agree-tos -d {{ server_name }}
+  shell: letsencrypt certonly -n --webroot -w /var/www/letsencrypt -m {{ letsencrypt_email }} --agree-tos -d {{ server_name }}
   args:
     creates: /etc/letsencrypt/live/{{ server_name }}
 
@@ -16,3 +16,9 @@
   shell: openssl dhparam -out /etc/nginx/dhparams.pem 2048
   args:
     creates: /etc/nginx/dhparams.pem
+
+- name: Add letsencrypt cronjob for cert renewal
+  cron:
+    name: letsencrypt_renewal
+    special_time: weekly
+    job: letsencrypt --renew certonly -n --webroot -w /var/www/letsencrypt -m {{ letsencrypt_email }} --agree-tos -d {{ server_name }} && systemctl reload nginx

@@ -1,8 +1,8 @@
 ---
 - name: This playbook sets up NZ R Shiny infrastructure with Vagrant
   hosts: vagrant
-  sudo: true
-  sudo_user: root
+  become: true
+  become_user: root
 
   vars_files:
     - vars/default.yml
@@ -18,26 +18,22 @@
 
 - name: This playbook sets up NZ R Shiny infrastructure
   hosts: catalyst
-  sudo: true
-  sudo_user: root
+  become: true
+  become_user: root
 
-  pre_tasks:
-    - raw: sudo apt-get -y install python
+  # pre_tasks:
+  #   - raw: sudo apt-get -y install python
 
   vars_files:
     - vars/default.yml
 
   vars:
-    security_ufw_allowed_incoming_tcp_ports:
-      - 80
-      - 22
-      - 443
+    letsencrypt_enabled: true
 
   roles:
     - locale
     - base
     - security
-    #- postgresql
     - nginx
     - r
     - shiny

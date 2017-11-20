@@ -5,4 +5,4 @@
 # - name: apt-get upgrade -y
 #   apt: upgrade=dist
 
-- include: install.yml
+- import_tasks: install.yml
