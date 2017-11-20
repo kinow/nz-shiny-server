@@ -1,0 +1,18 @@
+---
+# Install letscrypt certificate
+
+- name: Install letscrypt
+  apt: name=letsencrypt state=latest
+
+- name: create letsencrypt directory
+  file: name=/var/www/letsencrypt state=directory
+
+- name: Create letsencrypt certificate
+  shell: letsencrypt certonly -n --webroot -w /var/www/letsencrypt -m brunodepaulak+letsencrypt@gmail.com --agree-tos -d {{ server_name }}
+  args:
+    creates: /etc/letsencrypt/live/{{ server_name }}
+
+- name: Generate dhparams
+  shell: openssl dhparam -out /etc/nginx/dhparams.pem 2048
+  args:
+    creates: /etc/nginx/dhparams.pem
