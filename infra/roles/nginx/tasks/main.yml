@@ -10,23 +10,26 @@
   tags:
     - nginx
 
+- name: start nginx
+  service: name=nginx state=started
+
 - name: Disable default server
   file: path=/etc/nginx/sites-enabled/default state=absent
   tags:
     - nginx
-  register: restart_nginx
+  notify: reload nginx
 
 - name: Copy R Shiny nginx site
   template: src=rshiny-site.j2 dest=/etc/nginx/sites-available/rshiny-site owner=root group=root mode=0644
   tags:
     - nginx
-  register: restart_nginx
+  notify: reload nginx
 
 - name: Copy R Shiny HTTPS nginx site
   template: src=rshiny-site-https.j2 dest=/etc/nginx/sites-available/rshiny-site-https owner=root group=root mode=0644
   tags:
     - nginx
-  register: restart_nginx
+  notify: reload nginx
 
 - name: Copy attribution logo
   copy: src=catalyst-logo.png dest=/usr/share/nginx/html/catalyst-logo.png
@@ -42,17 +45,7 @@
         state=link
   tags:
     - nginx
-  register: restart_nginx
-
-- name: restart nginx
-  service: name=nginx state=started
-
-- name: restart nginx
-  service: name=nginx state=restarted
-  when: restart_nginx.changed
-
-- debug:
-    msg: "{{letsencrypt_enabled}}"
+  notify: reload nginx
 
 - include_tasks: roles/nginx/tasks/letsencrypt.yml
   when: letsencrypt_enabled == true
@@ -66,8 +59,5 @@
   when: letsencrypt_enabled == true
   tags:
     - nginx
-  register: restart_nginx
+  notify: reload nginx
 
-- name: restart nginx
-  service: name=nginx state=restarted
-  when: restart_nginx.changed
