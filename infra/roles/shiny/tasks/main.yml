@@ -11,3 +11,9 @@
   when: get_shiny.changed
   notify: 
     - restart nginx
+
+- name: Copy attribution logo
+  copy: src=catalyst-logo.png dest=/srv/shiny-server/catalyst-logo.png
+
+- name: Copy index HTML
+  copy: src=index.html dest=/srv/shiny-server/index.html
