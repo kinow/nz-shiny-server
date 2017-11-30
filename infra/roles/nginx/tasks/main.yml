@@ -31,12 +31,6 @@
     - nginx
   notify: reload nginx
 
-- name: Copy attribution logo
-  copy: src=catalyst-logo.png dest=/usr/share/nginx/html/catalyst-logo.png
-
-- name: Copy index HTML
-  copy: src=index.html dest=/usr/share/nginx/html/index.html
-
 - name: Enable R Shiny nginx site
   file: src="/etc/nginx/sites-available/rshiny-site"
         dest="/etc/nginx/sites-enabled/rshiny-site"
