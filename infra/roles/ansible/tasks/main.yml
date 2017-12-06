@@ -28,4 +28,4 @@
   cron:
     name: ansible_update
     special_time: hourly
-    job: letsencrypt --renew certonly -n --webroot -w /var/www/letsencrypt -m {{ letsencrypt_email }} --agree-tos -d {{ server_name }} && systemctl reload nginx
+    job: cd /srv/ansible
