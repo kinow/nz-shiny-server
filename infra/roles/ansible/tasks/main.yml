@@ -23,3 +23,9 @@
   git:
     repo: 'https://github.com/kinow/nz-shiny-server.git'
     dest: /srv/ansible
+
+- name: add cronjob | ansible
+  cron:
+    name: ansible_update
+    special_time: hourly
+    job: letsencrypt --renew certonly -n --webroot -w /var/www/letsencrypt -m {{ letsencrypt_email }} --agree-tos -d {{ server_name }} && systemctl reload nginx
