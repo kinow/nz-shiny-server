@@ -9,3 +9,17 @@
 
 - name: install | ansible
   apt: pkg=ansible state=latest update-cache=yes
+
+# Clone repository
+- name: create git repository folder | ansible
+  file:
+    path: /srv/ansible
+    state: directory
+    mode: 0750
+    owner: root
+    group: root
+
+- name: clone repository | ansible
+  git:
+    repo: 'https://github.com/kinow/nz-shiny-server.git'
+    dest: /srv/ansible
