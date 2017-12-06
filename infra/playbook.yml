@@ -15,6 +15,7 @@
     - r
     - shiny
     - rapps
+    - ansible
 
 - name: This playbook sets up NZ R Shiny infrastructure
   hosts: catalyst
@@ -38,3 +39,4 @@
     - r
     - shiny
     - rapps
+    - ansible

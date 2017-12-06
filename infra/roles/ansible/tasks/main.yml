@@ -1,0 +1,11 @@
+---
+# Install Ansible so it can be run as a cron job
+# Using http://docs.ansible.com/ansible/latest/intro_installation.html as reference
+- name: pre-requirements | ansible
+  apt: pkg=software-properties-common state=latest update-cache=yes
+
+- name: add repository | ansible
+  apt_repository: repo='ppa:ansible/ansible'
+
+- name: install | ansible
+  apt: pkg=ansible state=latest update-cache=yes
