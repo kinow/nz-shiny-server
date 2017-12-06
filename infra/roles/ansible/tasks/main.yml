@@ -28,4 +28,4 @@
   cron:
     name: ansible_update
     special_time: hourly
-    job: cd /srv/ansible && git pull | grep -v up-to-date && ansible-playbook  -i hosts -u ubuntu -l 150.242.40.18  -c local playbook.yml
+    job: cd /srv/ansible && git pull | grep -v up-to-date && cd infra && ansible-playbook  -i hosts -u ubuntu -l 150.242.40.18 -c local playbook.yml
