@@ -28,4 +28,4 @@
   cron:
     name: ansible_update
     special_time: hourly
-    job: cd /srv/ansible && git pull | grep -v up-to-date && cd infra && /bin/bash run.sh 2>&1 > /srv/ansible/last.log
+    job: cd /srv/ansible && git pull | grep -v up-to-date && /bin/bash /srv/ansible/run.sh 2>&1 > /srv/ansible/last.log
