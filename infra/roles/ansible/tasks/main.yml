@@ -28,4 +28,4 @@
   cron:
     name: ansible_update
     special_time: hourly
-    job: cd /srv/ansible && git pull | grep -v up-to-date && cd infra && ansible-playbook -i hosts -l "{{ inventory_hostname }}" -c local playbook.yml 2>&1 > /srv/ansible/last.log
+    job: cd /srv/ansible && /bin/bash run.sh 2>&1 > /srv/ansible/last.log
