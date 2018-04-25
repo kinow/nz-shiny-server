@@ -19,7 +19,7 @@
 - git:
     repo: 'https://github.com/haututu/suicideRates.git'
     dest: /srv/shiny-server/suicide_statistics
-    version: 5ddeae26c7706f82393f624fb303a78c017f405
+    version: 04471d31a7723aa0da9a946ea848faad74f20b44
 
 # permissions
 - file:
