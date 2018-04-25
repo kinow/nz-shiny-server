@@ -3,3 +3,5 @@
 - import_tasks: nz_river_app.yml
 # Earthquake example app, see https://github.com/kinow/nz-shiny-server/issues/3
 - import_tasks: nz_example_earthquakes.yml
+# Suicide stats app, see https://github.com/haututu/suicideRates
+- import_tasks: suicide_statistics.yml
