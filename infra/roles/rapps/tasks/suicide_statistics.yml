@@ -1,0 +1,30 @@
+# install R packages
+- name: packages | install
+  command: >
+    R-install-package
+      {{ item.name }}
+      {{ item.type | default(r_packages_type) }}
+      {% if item.lib is defined %}{{ item.lib }}{% endif %}
+      {% if item.repos is defined %}{{ item.repos }}{% endif %}
+  register: r_install_package
+  changed_when: "r_install_package.stdout_lines[-1] is defined and r_install_package.stdout_lines[-1] == 'changed'"
+  with_items:
+    # packages needed for the app
+    - { name: 'shinyjs' }
+  when: item.state is undefined or item.state == 'present'
+  tags:
+    - r-packages-install
+
+# check out code
+- git:
+    repo: 'https://github.com/haututu/suicideRates.git'
+    dest: /srv/shiny-server/suicide_statistics
+    version: 5ddeae26c7706f82393f624fb303a78c017f405
+
+# permissions
+- file:
+    path: /srv/shiny-server/suicide_statistics
+    state: directory
+    mode: 0750
+    owner: shiny
+    group: shiny
