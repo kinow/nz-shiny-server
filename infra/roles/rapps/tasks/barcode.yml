@@ -1,0 +1,13 @@
+# check out code
+- git:
+    repo: 'https://gitlab.com/gringer/barcoder.git'
+    dest: /srv/shiny-server/barcoder
+    version: adb9aceef4993af40d372a9098042cf43a8752f8
+
+# permissions
+- file:
+    path: /srv/shiny-server/barcoder
+    state: directory
+    mode: 0750
+    owner: shiny
+    group: shiny
